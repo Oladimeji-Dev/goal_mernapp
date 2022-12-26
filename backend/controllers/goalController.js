@@ -11,6 +11,11 @@ const getGoal = (req, res) => {
 //@route  Post  api/goals
 //@access Private
 const setGoal = (req, res) => {
+    if(!req.body.text){
+        res.status(400)
+        throw new Error("Please add all text fields")
+    }
+   
   res.status(200).json({
     message: "Create  Goals",
   });
