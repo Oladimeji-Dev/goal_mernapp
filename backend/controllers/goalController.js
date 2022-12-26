@@ -59,11 +59,12 @@ const deleteGoal = asyncHandler(async (req, res) => {
     throw new Error("Goal does not exit");
   }
 
-  const deletedGoal = await Goal.findByIdAndDelete(req.params.id);
+  await goalExist.remove()
+
+//   const deletedGoal = await Goal.findByIdAndDelete(req.params.id);
 
   res.status(200).json({
-    message: `Delete Goals ${req.params.id}`,
-    data: deletedGoal,
+    id: req.params.id
   });
 });
 
