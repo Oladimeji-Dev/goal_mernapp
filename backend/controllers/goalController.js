@@ -44,7 +44,7 @@ const updateGoal = asyncHandler(async (req, res) => {
 
   res.status(200).json({
     message: `Update Goals ${req.params.id}`,
-    data: updatedGoal
+    data: updatedGoal,
   });
 });
 
@@ -52,18 +52,18 @@ const updateGoal = asyncHandler(async (req, res) => {
 //@route  Delete  api/goals
 //@access Private
 const deleteGoal = asyncHandler(async (req, res) => {
-    const goalExist = await Goal.findById(req.params.id);
+  const goalExist = await Goal.findById(req.params.id);
 
   if (!goalExist) {
     res.status(400);
     throw new Error("Goal does not exit");
   }
 
-  const deletedGoal = await Goal.findByIdAndDelete(req.params.id)
+  const deletedGoal = await Goal.findByIdAndDelete(req.params.id);
 
   res.status(200).json({
     message: `Delete Goals ${req.params.id}`,
-    data: deletedGoal
+    data: deletedGoal,
   });
 });
 
