@@ -4,8 +4,8 @@
   "description": "Mern application",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon backend/server.js",
-    "start": "node backend/server.js"
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js"
   },
   "author": "Oladimeji",
   "license": "ISC",
