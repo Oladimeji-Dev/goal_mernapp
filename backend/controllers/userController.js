@@ -86,8 +86,16 @@ const loginUser = asyncHandler(async (req, res) => {
 //@route  GET  api/users/ME
 //@access PRIVATE
 const getMe = asyncHandler(async (req, res) => {
+  //destructure the value from the data got
+  //from the data using the req.user set in the middle ware
+  const { _id, name, email } = await User.findById(req.user.id);
   res.status(200).json({
     message: "get users",
+    data: {
+      _id,
+      name,
+      email,
+    },
   });
 });
 
