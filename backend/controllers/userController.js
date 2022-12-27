@@ -39,7 +39,7 @@ const registerUser = asyncHandler(async (req, res) => {
       _id: user.id,
       name,
       email,
-      token:generateToken(user.id)
+      token: generateToken(user.id),
     });
   } else {
     res.status(400);
@@ -69,7 +69,7 @@ const loginUser = asyncHandler(async (req, res) => {
         _id: user.id,
         name: user.name,
         email,
-        token:generateToken(user.id)
+        token: generateToken(user.id),
       },
     });
   } else {
@@ -82,21 +82,20 @@ const loginUser = asyncHandler(async (req, res) => {
   });
 });
 
-//@desc   Get user data
-//@route  GET  api/userS/ME
-//@access PUBLIC
+//@desc   GET USER DATA
+//@route  GET  api/users/ME
+//@access PRIVATE
 const getMe = asyncHandler(async (req, res) => {
   res.status(200).json({
     message: "get users",
   });
 });
 
-
-const generateToken = (id) =>{
-   return jwt.sign({id},process.env.JWT_SECRET,{
-        expiresIn:'30d'
-    })
-}
+const generateToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, {
+    expiresIn: "30d",
+  });
+};
 
 module.exports = {
   registerUser,
