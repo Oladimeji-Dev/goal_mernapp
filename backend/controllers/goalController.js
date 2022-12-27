@@ -28,7 +28,7 @@ const setGoal = asyncHandler(async (req, res) => {
 });
 
 //@desc   Update goals
-//@route  Put  api/goals
+//@route  Put  api/goals/:id
 //@access Private
 const updateGoal = asyncHandler(async (req, res) => {
   const goalExist = await Goal.findById(req.params.id);
@@ -49,7 +49,7 @@ const updateGoal = asyncHandler(async (req, res) => {
 });
 
 //@desc   Delete goals
-//@route  Delete  api/goals
+//@route  Delete  api/goals/:id
 //@access Private
 const deleteGoal = asyncHandler(async (req, res) => {
   const goalExist = await Goal.findById(req.params.id);
